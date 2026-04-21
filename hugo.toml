@@ -3,11 +3,11 @@ languageCode = "vi-vn"
 title = "Focus on Career - L1ttleNoPro"
 theme = "hugo-texify3"
 
-# --- KHỐI QUAN TRỌNG ĐỂ FIX LỖI AUTHOR ---
+# 1. Định nghĩa Author dưới dạng Table (Sửa lỗi Table vs Value)
 [author]
   name = "Đặng Minh Tú"
-# -----------------------------------------
 
+# 2. Các cấu hình hệ thống
 enableGitInfo = true
 enableRobotsTXT = true
 hasCJKLanguage = true
@@ -22,20 +22,17 @@ hasCJKLanguage = true
 [params]
   title = "Focus on Career"
   description = "Lộ trình trở thành Solution Architect & Security Expert"
-
+  
   # Cấu hình bài viết
   math = true
   toc = true
   numberedSubtitles = true
   dateFormat = "02/01/2006"
   rootFontSize = "105%"
-
-  # Footer
+  
   footnote = "© 2026 Đặng Minh Tú - Bảo mật thông tin UIT"
 
-  # Dự phòng thêm một lần nữa trong params
-  author = "Đặng Minh Tú"
-
+  # KHÔNG viết author = "..." ở đây nữa để tránh lỗi unmarshal
   [params.author]
     name = "Đặng Minh Tú"
     bio = "Sinh viên An toàn thông tin tại UIT (ATTN2024)"
