@@ -23,15 +23,14 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24' # Cập nhật lên bản mới nhất theo log yêu cầu
-
-      - name: Install Dart Sass & PostCSS
+      - name: Install Dependencies
         run: |
-          sudo snap install dart-sass
-          npm install -g postcss postcss-cli autoprefixer
+          # Cài đặt Dart Sass
+          curl -L https://github.com/sass/dart-sass/releases/download/1.75.0/dart-sass-1.75.0-linux-x64.tar.gz | tar -xz
+          echo "$(pwd)/dart-sass" >> $GITHUB_PATH
+          
+          # Cài đặt PostCSS và Autoprefixer ngay tại thư mục dự án
+          npm install postcss postcss-cli autoprefixer
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
