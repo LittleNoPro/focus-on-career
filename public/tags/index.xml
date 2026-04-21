@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Focus on Career - LittleNoPro</title>
-    <link>http://localhost:1313/forcus-on-career/tags/</link>
+    <link>http://localhost:1313/focus-on-career/tags/</link>
     <description>Recent content in Tags on Focus on Career - LittleNoPro</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/forcus-on-career/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/focus-on-career/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

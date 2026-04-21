@@ -1,4 +1,4 @@
-baseURL = "https://littlenopro.github.io/forcus-on-career/"
+baseURL = "https://littlenopro.github.io/focus-on-career/"
 disqusShortname = ""
 enableGitInfo = true
 enableRobotsTXT = true
@@ -15,9 +15,16 @@ pagerSize = 5
 tags = "tags"
 categories = "categories"
 
+[build]
+  [[build.buildStats.data]]
+  [build.cacheDir]
+
+# Ép Hugo dùng đúng file thực thi này
+[bin]
+  sass = "/usr/local/bin/sass"
+
 [params]
 title="TeXify3"
-author = "Dang Minh Tu"
 description = "Gradually become to Solution Architect"
 footnote = """
 Powered by  <a class=link href=https://gohugo.io target=_blank rel=noopener>Hugo</a> |
@@ -32,6 +39,10 @@ rootFontSize = "105%"
 math = true
 enableDuckDuckGoSearchBox = true
 numberedSubtitles = true
+
+  [params.author]
+        name = "Đặng Minh Tú"
+        bio = "Information Security Student at UIT"
 
   [params.commentEngine]
   code = """
@@ -78,3 +89,9 @@ numberedSubtitles = true
   whatsapp = true
   hackernews = true
   telegram = true
+
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
