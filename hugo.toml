@@ -38,12 +38,12 @@ hasCJKLanguage = true
     bio = "Sinh viên An toàn thông tin tại UIT (ATTN2024)"
 
   [params.sharingbuttons]
-    facebook = true
+    facebook = false
     twitter = false
-    email = true
-    linkedin = true
+    email = false
+    linkedin = false
     reddit = false
-    telegram = true
+    telegram = false
 
 [markup]
   [markup.goldmark]

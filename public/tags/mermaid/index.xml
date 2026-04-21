@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mermaid on Focus on Career - LittleNoPro</title>
+    <title>Mermaid on Focus on Career - L1ttleNoPro</title>
     <link>http://localhost:1313/focus-on-career/tags/mermaid/</link>
-    <description>Recent content in Mermaid on Focus on Career - LittleNoPro</description>
+    <description>Recent content in Mermaid on Focus on Career - L1ttleNoPro</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/focus-on-career/tags/mermaid/index.xml" rel="self" type="application/rss+xml" />
+    <language>vi-vn</language><lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/focus-on-career/tags/mermaid/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mermaid Diagrams</title>
       <link>http://localhost:1313/focus-on-career/posts/mermaid-diagrams/</link>
-      <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/focus-on-career/posts/mermaid-diagrams/</guid>
+      <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate><guid>http://localhost:1313/focus-on-career/posts/mermaid-diagrams/</guid>
       <description>&lt;h2 id=&#34;flowchart&#34;&gt;Flowchart&lt;/h2&gt;
 &lt;div class=&#34;mermaid&#34;&gt;graph LR;
     A[Hard edge] --&gt;|Link text| B(Round edge)

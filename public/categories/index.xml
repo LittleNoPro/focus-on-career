@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Focus on Career - LittleNoPro</title>
+    <title>Categories on Focus on Career - L1ttleNoPro</title>
     <link>http://localhost:1313/focus-on-career/categories/</link>
-    <description>Recent content in Categories on Focus on Career - LittleNoPro</description>
+    <description>Recent content in Categories on Focus on Career - L1ttleNoPro</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/focus-on-career/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>vi-vn</language><lastBuildDate>Tue, 21 Apr 2026 23:30:00 +0700</lastBuildDate><atom:link href="http://localhost:1313/focus-on-career/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
