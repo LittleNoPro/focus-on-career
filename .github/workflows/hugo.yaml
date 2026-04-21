@@ -13,9 +13,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      # Sửa lỗi Warning Node.js 20
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,24 +20,29 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Install Dependencies
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install PostCSS & Autoprefixer
+        # Cài đặt local để Hugo dễ tìm thấy module
+        run: npm install postcss postcss-cli autoprefixer
+
+      - name: Install Dart Sass (Manual Install - Fast)
         run: |
-          # Cài đặt Dart Sass
           curl -L https://github.com/sass/dart-sass/releases/download/1.75.0/dart-sass-1.75.0-linux-x64.tar.gz | tar -xz
           echo "$(pwd)/dart-sass" >> $GITHUB_PATH
-          
-          # Cài đặt PostCSS và Autoprefixer ngay tại thư mục dự án
-          npm install postcss postcss-cli autoprefixer
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.160.1'
+          hugo-version: 'latest'
           extended: true
 
       - name: Build with Hugo
-        # Chạy build và minify
-        run: hugo --minify
+        # Thêm flag --gc để dọn dẹp và build nhanh hơn
+        run: hugo --minify --gc
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
