@@ -1,0 +1,19 @@
+# Dependencies
+/node_modules/
+
+# Hugo build output and caches
+/public/
+/resources/_gen/
+/.hugo_build.lock
+
+# Local tooling downloads
+/dart-sass/
+/dart-sass-*.tar.gz
+/hugo_*.deb
+
+# Local agent/tool artifacts
+/.codex
+
+# OS/editor noise
+.DS_Store
+Thumbs.db

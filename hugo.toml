@@ -19,6 +19,12 @@ hasCJKLanguage = true
   tag = "tags"
   category = "categories"
 
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
 [params]
   title = "Focus on Career"
   description = "Lộ trình trở thành Solution Architect & Security Expert"
@@ -43,7 +49,12 @@ hasCJKLanguage = true
     email = false
     linkedin = false
     reddit = false
+    whatsapp = false
+    hackernews = false
     telegram = false
+
+  [params.commentEngine]
+    code = ""
 
 [markup]
   [markup.goldmark]
