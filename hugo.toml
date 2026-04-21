@@ -1,97 +1,60 @@
 baseURL = "https://littlenopro.github.io/focus-on-career/"
-disqusShortname = ""
+languageCode = "vi-vn"
+title = "Focus on Career - L1ttleNoPro"
+theme = "hugo-texify3"
+
+# --- KHỐI QUAN TRỌNG ĐỂ FIX LỖI AUTHOR ---
+[author]
+  name = "Đặng Minh Tú"
+# -----------------------------------------
+
 enableGitInfo = true
 enableRobotsTXT = true
 hasCJKLanguage = true
-languageCode = "en"
-rssLimit = 10
-title = "Focus on Career - LittleNoPro"
-theme = "hugo-texify3"
 
 [pagination]
-pagerSize = 5
+  pagerSize = 5
 
 [taxonomies]
-tags = "tags"
-categories = "categories"
-
-[build]
-  [[build.buildStats.data]]
-  [build.cacheDir]
-
-# Ép Hugo dùng đúng file thực thi này
-[bin]
-  sass = "/usr/local/bin/sass"
+  tag = "tags"
+  category = "categories"
 
 [params]
-title="TeXify3"
-description = "Gradually become to Solution Architect"
-footnote = """
-Powered by  <a class=link href=https://gohugo.io target=_blank rel=noopener>Hugo</a> |
-Theme <a class=link href=https://github.com/michaelneuper/hugo-texify3 target=_blank rel=noopener>TeXify3</a>
-"""
-customCSS = []
-customJS = []
-dateFormat = "2 January 2006"
-emphasisWithDots = true
-toc = true
-rootFontSize = "105%"
-math = true
-enableDuckDuckGoSearchBox = true
-numberedSubtitles = true
+  title = "Focus on Career"
+  description = "Lộ trình trở thành Solution Architect & Security Expert"
+
+  # Cấu hình bài viết
+  math = true
+  toc = true
+  numberedSubtitles = true
+  dateFormat = "02/01/2006"
+  rootFontSize = "105%"
+
+  # Footer
+  footnote = "© 2026 Đặng Minh Tú - Bảo mật thông tin UIT"
+
+  # Dự phòng thêm một lần nữa trong params
+  author = "Đặng Minh Tú"
 
   [params.author]
-        name = "Đặng Minh Tú"
-        bio = "Information Security Student at UIT"
-
-  [params.commentEngine]
-  code = """
-  <script src="https://giscus.app/client.js"
-        data-repo="michaelneuper/website"
-        data-repo-id="R_kgDOIjPNaQ"
-        data-category="General"
-        data-category-id="DIC_kwDOIjPNac4CaklA"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="gruvbox"
-        data-lang="en"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-  </script>
-  """
-
-  [params.buymeacoffee]
-  code = """
-  <script async data-name="BMC-Widget"
-        data-cfasync="true"
-        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-        data-id="michaelneuper"
-        data-description="Like what I do? Buy me a coffee!"
-        data-message=""
-        data-color="#d79921"
-        data-position="Right"
-        data-x_margin="18"
-        data-y_margin="18"
-        crossorigin="anonymous">
-  </script>
-  """
+    name = "Đặng Minh Tú"
+    bio = "Sinh viên An toàn thông tin tại UIT (ATTN2024)"
 
   [params.sharingbuttons]
-  facebook = true
-  twitter = true
-  email = true
-  linkedin = true
-  reddit = true
-  whatsapp = true
-  hackernews = true
-  telegram = true
-
+    facebook = true
+    twitter = false
+    email = true
+    linkedin = true
+    reddit = false
+    telegram = true
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    style = "gruvbox"
