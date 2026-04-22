@@ -1,5 +1,5 @@
 ---
-title: "Hành trình trở thành Solution Architect"
+title: "First post"
 date: 2026-04-21T23:30:00+07:00
 draft: false
 tags: ["Career", "UIT"]

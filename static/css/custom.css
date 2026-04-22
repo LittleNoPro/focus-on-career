@@ -1,0 +1,37 @@
+.recent-posts-list ul,
+#main.archive .post-group > ul {
+  list-style: none;
+}
+
+.recent-posts-list li,
+#main.archive .post-group > ul > li {
+  align-items: start;
+  column-gap: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 8.5rem;
+}
+
+.recent-posts-list li + li {
+  margin-top: 0.35rem;
+}
+
+.recent-posts-list time,
+#main.archive .post-group > ul > li > time {
+  color: var(--fg4);
+  display: block;
+  min-width: 8.5rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+  .recent-posts-list li,
+  #main.archive .post-group > ul > li {
+    grid-template-columns: minmax(0, 1fr) 7rem;
+  }
+
+  .recent-posts-list time,
+  #main.archive .post-group > ul > li > time {
+    min-width: 7rem;
+  }
+}

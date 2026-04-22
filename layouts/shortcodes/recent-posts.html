@@ -1,0 +1,16 @@
+{{- $limit := .Get "limit" | default 3 | int -}}
+{{- $posts := where site.RegularPages "Section" "posts" -}}
+{{- if gt (len $posts) 0 -}}
+<div class="recent-posts-list">
+<ul>
+  {{- range first $limit ($posts.ByDate.Reverse) -}}
+  <li>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <time>{{ .Date.Format "02 Jan 2006" }}</time>
+  </li>
+  {{- end -}}
+</ul>
+</div>
+{{- else -}}
+<p>No posts yet.</p>
+{{- end -}}

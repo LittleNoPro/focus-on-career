@@ -1,23 +1,17 @@
-A minimal, $\LaTeX$-style hugo theme for personal blogging.
-Visit the [wiki](https://github.com/michaelneuper/hugo-texify3/wiki) for information on how to install and configure.
+<!-- This website is where I note my learning in networking, security, and core infrastructure concepts. -->
+
+<!-- --- -->
+
+## About Me
+
+I am an Information Security student at UIT with a strong interest in networking, system security, and infrastructure.
+
+This blog is where I document what I learn, what I build, and the lessons I pick up through hands-on practice and continuous study.
+
+Updating...
 
 ---
 
-## Features
+## Recent Posts
 
-- Any comment engine (giscus, remark42, hyvor, etc.)
-- [Mermaid](https://mermaid.js.org) support
-- DuckDuckGo search
-- Buymeacoffee widget
-- Auto numbered subtitles
-- [Disqus](https://disqus.com/) & Google Analytics
-- Render math equations with [KaTeX](https://katex.org/)
-- [PostCSS](https://postcss.org/) to make writing CSS easier
-- Dark mode toggle
-- Citations
-
----
-
-## Acknowledgement
-
-This is a fork of the [TeXify2](https://github.com/weastur/hugo-texify2) theme.
+{{< recent-posts limit="3" >}}

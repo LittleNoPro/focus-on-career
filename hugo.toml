@@ -1,6 +1,6 @@
 baseURL = "https://littlenopro.github.io/focus-on-career/"
 languageCode = "vi-vn"
-title = "Focus on Career - L1ttleNoPro"
+title = "L1ttl3's note"
 theme = "hugo-texify3"
 
 # 1. Định nghĩa Author dưới dạng Table (Sửa lỗi Table vs Value)
@@ -26,17 +26,18 @@ hasCJKLanguage = true
   term = ["HTML"]
 
 [params]
-  title = "Focus on Career"
+  title = "L1ttl3's note"
   description = "Lộ trình trở thành Solution Architect & Security Expert"
-  
+  customCSS = ["css/custom.css"]
+
   # Cấu hình bài viết
   math = true
   toc = true
   numberedSubtitles = true
   dateFormat = "02/01/2006"
   rootFontSize = "105%"
-  
-  footnote = "© 2026 Đặng Minh Tú - Bảo mật thông tin UIT"
+
+  footnote = "© 2026 Đặng Minh Tú - Infomation Security UIT"
 
   # KHÔNG viết author = "..." ở đây nữa để tránh lỗi unmarshal
   [params.author]
@@ -54,6 +55,9 @@ hasCJKLanguage = true
     telegram = false
 
   [params.commentEngine]
+    code = ""
+
+  [params.buymeacoffee]
     code = ""
 
 [markup]
