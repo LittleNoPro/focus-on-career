@@ -1,3 +1,16 @@
+:root {
+  --site-font-family: "Latin Modern Mono", Courier, monospace;
+}
+
+#wrapper,
+#wrapper input,
+#wrapper button,
+#wrapper select,
+#wrapper textarea,
+.resp-sharing-button {
+  font-family: var(--site-font-family);
+}
+
 .recent-posts-list ul,
 #main.archive .post-group > ul {
   list-style: none;

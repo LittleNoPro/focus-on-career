@@ -34,7 +34,7 @@ hasCJKLanguage = true
   math = true
   toc = true
   numberedSubtitles = true
-  dateFormat = "02/01/2006"
+  dateFormat = "2 January 2006"
   rootFontSize = "105%"
 
   footnote = "© 2026 Đặng Minh Tú - Infomation Security UIT"
@@ -69,4 +69,4 @@ hasCJKLanguage = true
     codeFences = true
     guessSyntax = true
     lineNos = true
-    style = "gruvbox"
+    style = "solarized-dark"
