@@ -1,12 +1,27 @@
-{{- $limit := .Get "limit" | default 3 | int -}}
+{{- $limit := .Get "limit" | default 7 | int -}}
 {{- $posts := where site.RegularPages "Section" "posts" -}}
 {{- if gt (len $posts) 0 -}}
 <div class="recent-posts-list">
 <ul>
   {{- range first $limit ($posts.ByDate.Reverse) -}}
   <li>
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <div class="recent-posts-entry">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{- with .Params.tags -}}
+      <div class="recent-posts-tags">
+        {{- range . -}}
+        <a class="recent-posts-tag" href='{{ "tags" | absURL }}/{{ . | urlize }}'>#{{ . }}</a>
+        {{- end -}}
+      </div>
+      {{- end -}}
+    </div>
     <time>{{ .Date.Format "02 Jan 2006" }}</time>
+  </li>
+  {{- end -}}
+  {{- if gt (len $posts) $limit -}}
+  <li aria-hidden="true">
+    <span>. . .</span>
+    <span></span>
   </li>
   {{- end -}}
 </ul>

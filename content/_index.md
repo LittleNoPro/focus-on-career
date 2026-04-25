@@ -14,4 +14,4 @@ Updating...
 
 ## Recent Posts
 
-{{< recent-posts limit="3" >}}
+{{< recent-posts limit="7" >}}
