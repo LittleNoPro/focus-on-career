@@ -23,11 +23,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
-      - name: Install PostCSS & Autoprefixer
-        # Cài đặt local để Hugo dễ tìm thấy module
-        run: npm install postcss postcss-cli autoprefixer
+      - name: Install Node dependencies
+        run: npm ci
 
       - name: Install Dart Sass (Manual Install - Fast)
         run: |
