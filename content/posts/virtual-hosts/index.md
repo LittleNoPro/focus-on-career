@@ -2,8 +2,8 @@
 title: "How to set up Apache virtual hosts on Ubuntu server?"
 date: 2025-09-02T23:30:00+07:00
 draft: false
-tags: ["Linux"]
-categories: ["Configuration"]
+tags: ["Configuration"]
+categories: ["Linux", "Network"]
 ---
 
 ## Virtual Hosts

@@ -2,8 +2,8 @@
 title: "Basic knowledge of Networking"
 date: 2025-04-30T23:30:00+07:00
 draft: false
-tags: ["Network"]
-categories: ["Knowledge"]
+tags: ["Basic"]
+categories: ["Network"]
 ---
 
 ## Introduction
