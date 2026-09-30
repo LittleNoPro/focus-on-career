@@ -83,7 +83,7 @@ vol -f memdump.mem windows.dlllist
 vol -f memdump.mem -o output_dir windows.memmap.Memmap --dump --pid 104     
 ```
 
-### procdump
+### dumpfiles
 
 **windows.dumpfiles** trích xuất file thực thi của tiến trình (cùng các DLL liên quan) từ bộ nhớ, hữu ích để dịch ngược (reverse-engineering) các file nhị phân malware mà không cần truy cập ổ đĩa.
 

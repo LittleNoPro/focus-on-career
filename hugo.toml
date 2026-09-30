@@ -35,7 +35,11 @@ hasCJKLanguage = true
   toc = true
   numberedSubtitles = true
   dateFormat = "2 January 2006"
-  rootFontSize = "105%"
+  # 100%, not 105%: the reference site (Giapppp.github.io) resolves to 100%, and
+  # every code-block metric is derived from the root em - the theme sets
+  # `pre { padding: 1rem }` and `$radius: 0.25rem`, so a 105% root inflated the
+  # fence font, padding and corner radius by 5% against the target rendering.
+  rootFontSize = "100%"
 
   footnote = "© 2026 Đặng Minh Tú - Infomation Security UIT"
 
@@ -68,7 +72,12 @@ hasCJKLanguage = true
   [markup.highlight]
     codeFences = true
     guessSyntax = true
-    lineNos = true
+    # No line-number gutter. The reference layout (Giapppp.github.io, same
+    # hugo-texify3 theme) renders fences as a bare <pre class="chroma">, and
+    # the gutter otherwise forces a <table class="lntable"> wrapper that the
+    # theme's `pre { padding: 1rem }` cannot space correctly, so the numbers
+    # sat flush against the block edge.
+    lineNos = false
     # Emit Chroma classes instead of hardcoded solarized-dark inline styles.
     # The theme ships the matching gruvbox palette (.chroma) and a .darkmode
     # variant, so light/dark follow the site toggle instead of a dark block

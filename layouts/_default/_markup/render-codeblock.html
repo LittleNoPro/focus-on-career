@@ -1,0 +1,26 @@
+{{- /* Renders ```bash / ```sh / ```shell / ```zsh fenced blocks through Chroma's
+       Fish lexer.
+
+       The shell lexer behind those tags only colours what it recognises - a
+       builtin, a number, a quoted string - so `vol -f memdump.mem
+       windows.pslist` and `sudo mkdir -p /var/www/...` produced no spans at all
+       and rendered as flat prose, while `chmod 755 myfile` emitted a single
+       token and came out with one magenta `755` in an otherwise plain line.
+       Fish is the only lexer in this Chroma build that tokenises shell commands
+       properly: verified against every command fence on the site, it emitted
+       tokens for 52/52 of them (the shell lexer manages 22/52), covering each
+       command name, its flags, numbers and quoted strings.
+
+       transform.Highlight names the emitted class after the lexer it was handed,
+       so the result is rewritten to report the language actually written in the
+       fence. The tag stays truthful and the `data-lang` selectors in
+       static/css/custom.css keep matching; nothing about the markup a reader
+       sees changes. */ -}}
+{{- $lang := .Type -}}
+{{- if in (slice "bash" "sh" "shell" "zsh") $lang -}}
+  {{- $html := transform.Highlight .Inner "fish" .Options -}}
+  {{- $html = replaceRE `(class="language-)fish(" data-lang=")fish(")` (printf `${1}%s${2}%s${3}` $lang $lang) $html -}}
+  {{- $html | safeHTML -}}
+{{- else -}}
+  {{- transform.Highlight .Inner $lang .Options -}}
+{{- end -}}

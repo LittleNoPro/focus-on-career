@@ -69,7 +69,7 @@ cat /etc/shadow
 
 Ta sẽ nhận được một lỗi "Permission denied". Xem thử quyền của file là gì:
 
-```bash
+```console
 $ ls -la /etc/shadow
 
 -rw-r----- 1 root shadow 1134 Dec 1 11:45 /etc/shadow
@@ -151,7 +151,7 @@ Mục đích chính của `/etc/shadow` là lưu **encrypted password** và các
 
 Để xem nội dung file này, ta phải dùng lệnh với quyền cao hơn, thường là `sudo`:
 
-```bash
+```console
 $ sudo cat /etc/shadow
 
 root:MyEPTEa$6Nonsense:15000:0:99999:7:::
@@ -187,7 +187,7 @@ Trong Linux, việc quản lý quyền cho nhiều user sẽ gọn hơn rất nh
 
 Ta có thể xem nội dung file này bằng lệnh:
 
-```bash
+```console
 $ cat /etc/group
 
 root:*:0:pete
@@ -214,7 +214,7 @@ Trong Linux, gần như mọi thứ đều được biểu diễn dưới dạng
 
 Khi liệt kê file hoặc directory ở dạng chi tiết, ta sẽ thấy một chuỗi ký tự mô tả loại file và quyền truy cập của nó:
 
-```bash
+```console
 $ ls -l Desktop/
 
 drwxr-xr-x 2 pete penguins 4096 Dec 1 11:45 .
@@ -346,7 +346,7 @@ Lệnh cơ bản nhất để quan sát process là `ps`. Khác với `top`, `ps
 
 Nếu chỉ chạy:
 
-```bash
+```console
 $ ps
 
 PID   TTY          TIME CMD
@@ -567,7 +567,7 @@ Quản lý dung lượng đĩa là một công việc rất cơ bản khi sử d
 
 Lệnh `df` (**disk free**) cho biết dung lượng đã dùng và còn trống của các filesystem đang được mount. Để xem ở dạng dễ đọc hơn như GB hoặc MB, ta dùng:
 
-```bash
+```console
 $ df -h
 
 Filesystem      Size  Used Avail Use% Mounted on
@@ -587,7 +587,7 @@ Output này thường cho ta biết:
 
 Ngoài block storage, filesystem còn dùng **inode** để lưu metadata của file như owner, permission, và vị trí dữ liệu. Trong một số trường hợp hiếm, hệ thống vẫn còn dung lượng trống nhưng lại hết inode. Để kiểm tra điều đó, ta dùng:
 
-```bash
+```console
 $ df -i
 
 Filesystem      Inodes  IUsed   IFree IUse% Mounted on
@@ -633,7 +633,7 @@ Trước khi nói về `symlink` và `hard link`, ta cần hiểu khái niệm *
 
 Khi xem file bằng `ls -li`, ta sẽ thấy thêm thông tin về **inode number** và **link count**. Ví dụ:
 
-```bash
+```console
 $ ls -li
 
 140 drwxr-xr-x 2 pete pete 6 Jan 20 20:13 Desktop
@@ -664,7 +664,7 @@ ls -li
 
 Kết quả có thể trông như sau:
 
-```text
+```console
 151   -rw-rw-r-- 1 pete pete 7 Jan 21 21:36 myfile
 93401 -rw-rw-r-- 1 pete pete 8 Jan 21 21:36 myfile2
 93402 -rw-rw-r-- 1 pete pete 8 Jan 21 21:36 myfile3
@@ -691,7 +691,7 @@ ls -li
 
 Kết quả có thể là:
 
-```text
+```console
 151   -rw-rw-r-- 1 pete pete 7 Jan 21 21:36 myfile
 93401 -rw-rw-r-- 2 pete pete 8 Jan 21 21:36 myfile2
 93402 -rw-rw-r-- 1 pete pete 8 Jan 21 21:36 myfile3

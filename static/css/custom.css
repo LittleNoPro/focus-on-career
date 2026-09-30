@@ -119,11 +119,8 @@
   --site-font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas,
     "Courier New", monospace;
   --site-prose-font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --site-code-font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas,
-    "Courier New", monospace;
 }
 
-#wrapper,
 #wrapper input,
 #wrapper button,
 #wrapper select,
@@ -132,20 +129,23 @@
   font-family: var(--site-font-family);
 }
 
-/* The theme hardcodes "Latin Modern Roman" on #wrapper (compiled common.css)
-   and "Latin Modern Mono" on code/pre (compiled content.css). Override both. */
+/* Prose stays on Source Serif 4. The theme's own "Latin Modern Roman" has no
+   Vietnamese glyphs (checked the shipped lmroman-*.woff cmap: no U+0103 ă,
+   U+0111 đ, U+01A1 ơ, U+01B0 ư, no combining marks), so using it here would
+   bring back the mid-word fallback this font work exists to prevent.
+   The reference site does the same thing from the other direction, swapping
+   the theme's Latin Modern Roman for "Noto Serif". */
 #wrapper {
   font-family: var(--site-prose-font-family);
 }
 
-.content code,
-.content pre,
-.content pre code,
-.content kbd,
-.content samp,
-.content var {
-  font-family: var(--site-code-font-family);
-}
+/* Code fences are deliberately left alone so the theme stack applies verbatim:
+   syntax.scss declares `font-family: "Latin Modern Mono", Courier, monospace`
+   on both pre and code, which is exactly what the reference site renders.
+   A `.content code/pre` rule here would outrank the theme's own declaration and
+   silently restyle every fence, so the code font is not re-declared. Latin
+   Modern Mono is safe in this position because fences hold commands and output
+   only - no Vietnamese appears inside any ``` block on the site. */
 
 .recent-posts-list ul,
 #main.archive .post-group > ul {
@@ -208,31 +208,36 @@
   white-space: nowrap;
 }
 
-/* Hugo wraps line-numbered code blocks in a <table class="lntable">. A table
-   shrinks to its content, so the code cell (td + pre) only ever measured as
-   wide as the longest command and the rest of the box sat empty. Force the
-   table to the full article width and let the code cell absorb the slack.
-   The theme already gives .content table { display: block; overflow-x: auto },
-   so when a line is wider than the article the whole table scrolls, keeping
-   the content on one line instead of wrapping or widening the page. */
-.content .highlight table.lntable {
-  width: 100%;
+/* Chroma's gruvbox palette leaves the shell-session classes unstyled (or, for
+   GenericOutput, stuck on the near-invisible #504945 in dark mode), so
+   ``console``/``shell-session`` fences - the ones that carry `$ cmd` prompts
+   and their output - rendered almost flat. Map them onto theme vars so they
+   follow the light/dark toggle like every other token color. Only `color` is
+   touched: the reference site leaves weight at 400 for these classes and the
+   code-block typography is meant to match it.
+   Loaded after the theme bundle, so these win the specificity ties against
+   syntax.scss's `.darkmode .chroma .x` rules. */
+.content .highlight .gp {
+  color: var(--green);
 }
 
-.content .highlight table.lntable td.lntd {
-  width: auto;
-  vertical-align: top;
+.content .highlight .go {
+  color: var(--fg2);
 }
 
-/* Line-number gutter stays as narrow as its digits. */
-.content .highlight table.lntable td.lntd:first-child {
-  width: 1%;
-  white-space: nowrap;
+.content .highlight .gs {
+  color: var(--fg1);
 }
 
-.content .highlight table.lntable > tbody > tr > td:last-child {
-  width: 100%;
-}
+/* Fenced ```bash / ```sh / ```shell / ```zsh blocks are rendered through
+   Chroma's Fish lexer by layouts/_default/_markup/render-codeblock.html, because
+   the shell lexer colours only what it recognises - a builtin, a number, a
+   quoted string - so most commands produced no spans at all and rendered as flat
+   prose. Fish tokenises every command fence on the site (52/52, against 22/52
+   for the shell lexer), which is what gives those blocks per-token colour:
+   command names (`nf`), flags (`na`), numbers (`m`), quoted strings (`s1`/`s2`)
+   and shell variables (`nv`). No rule is needed here - the palette in
+   syntax.scss already styles those classes in both light and dark mode. */
 
 .content p:has(> img:only-child) {
   text-align: center;
