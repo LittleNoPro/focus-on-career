@@ -1,5 +1,126 @@
+/* Typography: Source Serif 4 for prose, JetBrains Mono for code/UI.
+   Both ship full Vietnamese coverage (Latin Extended + combining marks);
+   the theme's Latin Modern Roman/Mono lack ă đ ơ ư and the hook-above
+   diacritic, which is why Vietnamese text used to fall back mid-word.
+   Fonts are self-hosted in static/fonts/ and split into Google Fonts'
+   vietnamese / latin-ext / latin subsets, so a page only downloads the
+   ranges it renders. Files are variable fonts declared with the
+   `font-weight: 400 700` range syntax. License: static/fonts/LICENSES.md */
+
+@font-face {
+  font-display: swap;
+  font-family: "Source Serif 4";
+  font-style: italic;
+  font-weight: 400 700;
+  src: url("../fonts/SourceSerif4-vietnamese-italic.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Source Serif 4";
+  font-style: italic;
+  font-weight: 400 700;
+  src: url("../fonts/SourceSerif4-latin-ext-italic.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Source Serif 4";
+  font-style: italic;
+  font-weight: 400 700;
+  src: url("../fonts/SourceSerif4-latin-italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 400 700;
+  src: url("../fonts/SourceSerif4-vietnamese-normal.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 400 700;
+  src: url("../fonts/SourceSerif4-latin-ext-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 400 700;
+  src: url("../fonts/SourceSerif4-latin-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "JetBrains Mono";
+  font-style: italic;
+  font-weight: 400 700;
+  src: url("../fonts/JetBrainsMono-vietnamese-italic.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "JetBrains Mono";
+  font-style: italic;
+  font-weight: 400 700;
+  src: url("../fonts/JetBrainsMono-latin-ext-italic.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "JetBrains Mono";
+  font-style: italic;
+  font-weight: 400 700;
+  src: url("../fonts/JetBrainsMono-latin-italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400 700;
+  src: url("../fonts/JetBrainsMono-vietnamese-normal.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400 700;
+  src: url("../fonts/JetBrainsMono-latin-ext-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400 700;
+  src: url("../fonts/JetBrainsMono-latin-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
-  --site-font-family: "Latin Modern Mono", Courier, monospace;
+  --site-font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas,
+    "Courier New", monospace;
+  --site-prose-font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --site-code-font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas,
+    "Courier New", monospace;
 }
 
 #wrapper,
@@ -9,6 +130,21 @@
 #wrapper textarea,
 .resp-sharing-button {
   font-family: var(--site-font-family);
+}
+
+/* The theme hardcodes "Latin Modern Roman" on #wrapper (compiled common.css)
+   and "Latin Modern Mono" on code/pre (compiled content.css). Override both. */
+#wrapper {
+  font-family: var(--site-prose-font-family);
+}
+
+.content code,
+.content pre,
+.content pre code,
+.content kbd,
+.content samp,
+.content var {
+  font-family: var(--site-code-font-family);
 }
 
 .recent-posts-list ul,
@@ -70,6 +206,32 @@
   min-width: 8.5rem;
   text-align: right;
   white-space: nowrap;
+}
+
+/* Hugo wraps line-numbered code blocks in a <table class="lntable">. A table
+   shrinks to its content, so the code cell (td + pre) only ever measured as
+   wide as the longest command and the rest of the box sat empty. Force the
+   table to the full article width and let the code cell absorb the slack.
+   The theme already gives .content table { display: block; overflow-x: auto },
+   so when a line is wider than the article the whole table scrolls, keeping
+   the content on one line instead of wrapping or widening the page. */
+.content .highlight table.lntable {
+  width: 100%;
+}
+
+.content .highlight table.lntable td.lntd {
+  width: auto;
+  vertical-align: top;
+}
+
+/* Line-number gutter stays as narrow as its digits. */
+.content .highlight table.lntable td.lntd:first-child {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.content .highlight table.lntable > tbody > tr > td:last-child {
+  width: 100%;
 }
 
 .content p:has(> img:only-child) {
