@@ -24,14 +24,14 @@ Sau đây mình sẽ giới thiệu về những plugins phổ biến:
 
 Plugin **windows.pslist** liệt kê các **process** đang hoạt động bằng cách duyệt qua danh sách liên kết tiến trình của **kernel**, cung cấp các yếu tố thiết yếu như **PID, PPID, image name, ...**
 
-```bash=
+```bash
 vol -f memdump.mem windows.pslist
 ```
 ### psscan
 
 Khác với **pslist**, **windows.psscan** chủ động quét các **memory pools** để tìm cấu trúc **EPROCESS**, phát hiện các tiến trình ẩn, đã kết thúc hoặc bị inject mà việc duyệt **linked-list** có thể bỏ sót. Đây là plugin quan trọng để phát hiện **rootkit**.
 
-```bash= 
+```bash
 vol -f memdump.mem windows.psscan
 ```
 
@@ -39,7 +39,7 @@ vol -f memdump.mem windows.psscan
 
 **windows.getsids** khôi phục các **Security Identifier (SID)** gắn với một tiến trình, bao gồm nhóm chính và nhóm bổ sung. Plugin này giúp ánh xạ ngữ cảnh người dùng và phát hiện **privilege escalation** trong các cuộc tấn công nhắm vào đặc quyền.
 
-```bash=
+```bash
 vol -f memdump.mem windows.getsids
 ```
 
@@ -47,7 +47,7 @@ vol -f memdump.mem windows.getsids
 
 **windows.privs** kiểm tra các đặc quyền của token trong một tiến trình, cho thấy những quyền đang được bật như debugging hoặc truy cập hệ thống (system access). Đây có thể là dấu hiệu của khai thác lỗ hổng hoặc nâng quyền trái phép.
 
-```bash=
+```bash
 vol -f memdump.mem windows.privilege.Privs
 ```
 
@@ -55,7 +55,7 @@ vol -f memdump.mem windows.privilege.Privs
 
 Plugin **windows.handles** liệt kê các handle đang mở (file, registry key) của một tiến trình, giúp lộ ra những tương tác đáng ngờ như khóa file bất thường hoặc mutex được malware dùng để giao tiếp.
 
-```bash=
+```bash
 vol -f memdump.mem windows.handles
 ```
 
@@ -63,7 +63,7 @@ vol -f memdump.mem windows.handles
 
 **windows.cmdline** tái dựng đầy đủ các tham số dòng lệnh (command-line arguments) được truyền cho tiến trình, thường làm lộ các tham số bị làm rối (obfuscated) hoặc vector injection trong script và file thực thi.
 
-```bash=
+```bash
 vol -f memdump.mem windows.cmdline
 ```
 
@@ -71,7 +71,7 @@ vol -f memdump.mem windows.cmdline
 
 Plugin **windows.dlllist** liệt kê các DLL đã được nạp của từng tiến trình, gồm địa chỉ cơ sở (base address) và đường dẫn, giúp phát hiện code injection hoặc các thư viện không có chữ ký (unsigned), vốn là dấu hiệu của việc bị xâm nhập.
 
-```bash=
+```bash
 vol -f memdump.mem windows.dlllist
 ```
 
@@ -79,7 +79,7 @@ vol -f memdump.mem windows.dlllist
 
 **windows.memmap.Memmap** trích xuất không gian địa chỉ ảo (virtual address space) của một tiến trình ra đĩa, cho phép kiểm tra sâu hơn các artifact trong heap hoặc stack.
 
-```bash=
+```bash
 vol -f memdump.mem -o output_dir windows.memmap.Memmap --dump --pid 104     
 ```
 
@@ -87,7 +87,7 @@ vol -f memdump.mem -o output_dir windows.memmap.Memmap --dump --pid 104
 
 **windows.dumpfiles** trích xuất file thực thi của tiến trình (cùng các DLL liên quan) từ bộ nhớ, hữu ích để dịch ngược (reverse-engineering) các file nhị phân malware mà không cần truy cập ổ đĩa.
 
-```bash= 
+```bash
 vol -f memdump.mem -o output_dir windows.dumpfiles --pid 104         
 ```
 
@@ -95,7 +95,7 @@ vol -f memdump.mem -o output_dir windows.dumpfiles --pid 104
 
 Plugin **windows.registry.printkey.PrintKey** lấy ra các chính sách kiểm toán (audit policy) của hệ thống, giúp làm rõ các cấu hình ghi log có thể đã bị can thiệp để né tránh phát hiện (evade detection).
 
-```bash=
+```bash
 vol -f memdump.mem windows.registry.printkey.PrintKey     
 ```
 
@@ -103,7 +103,7 @@ vol -f memdump.mem windows.registry.printkey.PrintKey
 
 **windows.hashdump** trích xuất các password hash LM/NTLM từ SAM registry hive, cho phép bẻ khóa offline (offline cracking) để khôi phục thông tin xác thực, phục vụ phân tích di chuyển ngang (lateral movement).
 
-```bash=
+```bash
 vol -f memdump.mem windows.hashdump.Hashdump
 ```
 
@@ -111,7 +111,7 @@ vol -f memdump.mem windows.hashdump.Hashdump
 
 **windows.registry.hivelist** liệt kê các registry hive đang được nạp cùng địa chỉ ảo (virtual address) của chúng, là nền tảng cho các bước registry forensics tiếp theo như liệt kê key.
 
-```bash=
+```bash
 vol -f memdump.mem windows.registry.hivelist.HiveList
 ```
 
@@ -119,7 +119,7 @@ vol -f memdump.mem windows.registry.hivelist.HiveList
 
 **windows.netscan** quét các kết nối TCP/UDP, cổng đang lắng nghe (listening ports) và các socket artifact, tái dựng hoạt động mạng để lần theo liên lạc C2 (command and control) hoặc hành vi exfiltration (rò rỉ dữ liệu).
 
-```bash=
+```bash
 vol -f memdump.mem windows.netscan
 ```
 
