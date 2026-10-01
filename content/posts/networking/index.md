@@ -123,7 +123,7 @@ Nói ngắn gọn:
 ::1
 ```
 
-### So sánh nhanh IPv4 và IPv6
+### Quick Comparison of IPv4 and IPv6
 
 | Đặc điểm | IPv4 | IPv6 |
 | --- | --- | --- |
@@ -193,7 +193,7 @@ AP thường xử lý các việc như:
 
 Trong gia đình, rất nhiều thiết bị "router Wi-Fi" thực chất là một hộp tích hợp nhiều vai trò cùng lúc: router + switch + access point + đôi khi cả firewall và DHCP server.
 
-### Phân biệt nhanh các thiết bị
+### Quick Comparison of Network Devices
 
 | Thiết bị | Tầng thường gặp | Dựa vào thông tin gì để xử lý | Vai trò chính |
 | --- | --- | --- | --- |
@@ -212,7 +212,7 @@ Mô hình `TCP/IP` thường được chia thành 4 tầng:
 
 ![alt text](image-3.png)
 
-#### Vai trò, giao thức và loại dữ liệu ở từng tầng TCP/IP
+#### Role, Protocols, and Data Types at Each TCP/IP Layer
 
 | Tầng TCP/IP | Vai trò chính | Ví dụ giao thức hoặc công nghệ | Loại dữ liệu |
 | --- | --- | --- | --- |
@@ -285,7 +285,7 @@ Vai trò và giao thức ở từng tầng OSI:
 | 2. Data Link | MAC address, frame, truy cập môi trường truyền | Ethernet, Wi-Fi, ARP, 802.1Q | **Frame** |
 | 1. Physical | Tín hiệu điện/quang/vô tuyến, bit | Cáp đồng, cáp quang, radio, đầu nối | **Bits** |
 
-### OSI và TCP/IP liên hệ với nhau như thế nào?
+### How OSI and TCP/IP Relate to Each Other
 
 ![alt text](image-2.png)
 

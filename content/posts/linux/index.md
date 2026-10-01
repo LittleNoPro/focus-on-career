@@ -103,7 +103,7 @@ cat /etc/passwd
 
 File này chứa danh sách tất cả user có trên hệ thống, và mỗi dòng sẽ đại diện cho một tài khoản.
 
-#### Phân tích các trường trong `/etc/passwd`
+#### Anatomy of the Fields in `/etc/passwd`
 
 Một dòng rất điển hình trong file này, thường là dòng của `root`, sẽ có dạng:
 
@@ -124,11 +124,11 @@ Dòng này gồm **7 trường** được phân tách bằng dấu `:`:
 6. **Home Directory**: Đường dẫn tuyệt đối đến thư mục cá nhân của user, ví dụ `/root`.
 7. **Login Shell**: Shell mặc định sẽ được chạy khi user đăng nhập, ví dụ `/bin/bash`.
 
-#### System Users và các tài khoản đặc biệt
+#### System Users and Special Accounts
 
 Khi mở `/etc/passwd`, ta sẽ thấy không chỉ có tài khoản của người dùng thật mà còn có rất nhiều tài khoản phục vụ cho hệ thống. Đây là các **system users**, được tạo ra để chạy những service hoặc process cụ thể với quyền hạn giới hạn hơn, từ đó giúp tăng tính an toàn cho hệ thống. Ví dụ, user `daemon` thường được dùng để chạy các tiến trình nền.
 
-#### Có nên chỉnh sửa trực tiếp `/etc/passwd` không?
+#### Should You Edit `/etc/passwd` Directly?
 
 Về mặt kỹ thuật, ta vẫn có thể sửa trực tiếp file `/etc/passwd` bằng text editor hoặc công cụ như `vipw`. Tuy nhiên, điều này **không được khuyến khích** vì chỉ cần sai một dấu `:` hoặc làm hỏng cấu trúc file là có thể khiến hệ thống gặp lỗi, thậm chí làm user không đăng nhập được.
 
@@ -143,11 +143,11 @@ Những công cụ này sẽ cập nhật `/etc/passwd` đúng cách và đồng
 
 File `/etc/shadow` là một thành phần rất quan trọng trong Linux vì nó lưu các thông tin xác thực nhạy cảm của user. Khác với `/etc/passwd` có thể được đọc công khai, `/etc/shadow` chỉ cho phép truy cập bằng quyền `root` hoặc `sudo`, nhờ đó password của user được bảo vệ tốt hơn.
 
-#### Vai trò của file `/etc/shadow` trong Linux
+#### Role of `/etc/shadow` in Linux
 
 Mục đích chính của `/etc/shadow` là lưu **encrypted password** và các thiết lập liên quan đến **password aging**. Việc tách phần dữ liệu nhạy cảm này ra khỏi `/etc/passwd` giúp hệ thống an toàn hơn, vì nếu user thường đọc được password hash thì họ có thể mang về và thử crack ngoại tuyến.
 
-#### Xem file với `cat /etc/shadow`
+#### Viewing the File with `cat /etc/shadow`
 
 Để xem nội dung file này, ta phải dùng lệnh với quyền cao hơn, thường là `sudo`:
 
@@ -159,7 +159,7 @@ root:MyEPTEa$6Nonsense:15000:0:99999:7:::
 
 Kết quả trả về là các dòng dữ liệu được phân tách bằng dấu `:`, và mỗi dòng tương ứng với một user.
 
-#### Cấu trúc của file
+#### Structure of the File
 
 Mỗi dòng trong `/etc/shadow` có **9 trường**:
 
@@ -179,11 +179,11 @@ Mặc dù `/etc/shadow` là file nền tảng trong cơ chế xác thực của 
 
 Trong Linux, việc quản lý quyền cho nhiều user sẽ gọn hơn rất nhiều nếu dùng **group**. File trung tâm phục vụ việc này là `/etc/group`, nơi định nghĩa các group có trong hệ thống và danh sách thành viên của từng group.
 
-#### `/etc/group` là gì?
+#### What Is `/etc/group`?
 
 `/etc/group` là một file văn bản thuần chứa danh sách tất cả các group trên hệ thống. Mỗi group có thể được gán quyền riêng trên file hoặc directory, từ đó giúp quản trị viên quản lý quyền truy cập hiệu quả hơn thay vì cấp quyền riêng lẻ cho từng user.
 
-#### Xem thông tin group
+#### Viewing Group Information
 
 Ta có thể xem nội dung file này bằng lệnh:
 
@@ -193,7 +193,7 @@ $ cat /etc/group
 root:*:0:pete
 ```
 
-#### Cấu trúc của file `/etc/group`
+#### Structure of `/etc/group`
 
 Tương tự `/etc/passwd`, mỗi dòng trong `/etc/group` đại diện cho một group và gồm **4 trường** được phân tách bằng dấu `:`:
 
@@ -210,7 +210,7 @@ Với ví dụ `root:*:0:pete`, ta có thể hiểu rằng tên group là `root`
 
 Trong Linux, gần như mọi thứ đều được biểu diễn dưới dạng file, nên việc kiểm soát ai được đọc, sửa hoặc thực thi file là một phần rất quan trọng của bảo mật hệ thống. Muốn quản trị Linux tốt, ta cần đọc được các quyền truy cập này ngay từ output của lệnh `ls -l`.
 
-#### Xem quyền với `ls -l`
+#### Viewing Permissions with `ls -l`
 
 Khi liệt kê file hoặc directory ở dạng chi tiết, ta sẽ thấy một chuỗi ký tự mô tả loại file và quyền truy cập của nó:
 
@@ -222,7 +222,7 @@ drwxr-xr-x 2 pete penguins 4096 Dec 1 11:45 .
 
 Trong toàn bộ dòng output trên, phần quan trọng nhất với chúng ta lúc này là cột đầu tiên: `drwxr-xr-x`.
 
-#### Cách đọc chuỗi quyền truy cập
+#### How to Read the Permission String
 
 Chuỗi `drwxr-xr-x` có thể được tách ra như sau:
 
@@ -258,7 +258,7 @@ Khi cần thay đổi quyền truy cập của file hoặc directory, lệnh qua
 - **Symbolic mode**: dùng ký hiệu chữ cái để thêm hoặc xóa quyền.
 - **Numerical mode**: dùng số để thiết lập toàn bộ quyền trong một lần.
 
-#### Dùng Symbolic Mode
+#### Using Symbolic Mode
 
 `Symbolic mode` dễ đọc hơn vì nó dùng các chữ cái để chỉ đối tượng mà ta muốn thay đổi quyền:
 
@@ -291,7 +291,7 @@ Ta cũng có thể thay đổi nhiều quyền cùng lúc. Ví dụ sau sẽ th�
 chmod ug+w myfile
 ```
 
-#### Dùng Numerical Mode
+#### Using Numerical Mode
 
 Ngoài ký hiệu chữ, Linux còn cho phép thay đổi quyền bằng **numerical mode** hay còn gọi là **octal mode**. Cách này dùng ba chữ số để biểu diễn quyền của `user`, `group`, và `other`.
 
@@ -324,7 +324,7 @@ Như vậy, `chmod 755 myfile` sẽ tạo ra bộ quyền:
 rwxr-xr-x
 ```
 
-#### Lưu ý bảo mật khi đổi quyền
+#### Security Notes When Changing Permissions
 
 `chmod` rất mạnh, nhưng cũng cần dùng cẩn thận. Nếu cấp quyền quá rộng, file có thể bị đọc hoặc sửa bởi những người không nên có quyền truy cập. Một ví dụ phổ biến nhưng nguy hiểm là:
 
@@ -338,11 +338,11 @@ Lệnh này cấp toàn quyền đọc, ghi, và thực thi cho tất cả mọi
 
 Trong Linux, **process** là một chương trình đang được thực thi. Mỗi process đều có một mã định danh riêng gọi là **PID** (**Process ID**), và kernel sẽ chịu trách nhiệm tạo, theo dõi, cấp phát tài nguyên, cũng như thu hồi tài nguyên khi process kết thúc.
 
-### Monitor Processes với `ps`
+### Monitoring Processes with `ps`
 
 Lệnh cơ bản nhất để quan sát process là `ps`. Khác với `top`, `ps` không hiển thị theo thời gian thực mà chỉ cho ta một **snapshot** tại đúng thời điểm lệnh được chạy.
 
-#### Dùng `ps` cơ bản
+#### Basic `ps` Usage
 
 Nếu chỉ chạy:
 
@@ -363,7 +363,7 @@ Ta sẽ thấy các process gắn với terminal hiện tại. Những cột qua
 
 Trên nhiều hệ thống, output còn có thêm cột `STAT`, dùng để biểu diễn trạng thái hiện tại của process.
 
-#### Dùng `ps aux`
+#### Using `ps aux`
 
 Một cách dùng rất phổ biến khác là:
 
@@ -379,7 +379,7 @@ ps aux
 
 `ps aux` cho ta cái nhìn đầy đủ hơn vì ngoài `PID` và `COMMAND`, nó còn thường hiển thị thêm các cột như `USER`, `%CPU`, `%MEM`, `VSZ`, và `RSS`.
 
-#### Dùng `ps -ef`
+#### Using `ps -ef`
 
 Một kiểu rất hay gặp khác là:
 
@@ -403,7 +403,7 @@ ps -ef
 
 Khi cần chẩn đoán nhanh hệ thống đang chạy những gì, `ps aux` và `ps -ef` là hai lệnh được dùng thường xuyên nhất.
 
-#### Theo dõi thời gian thực với `top`
+#### Real-Time Monitoring with `top`
 
 Nếu `ps` chỉ cho ảnh chụp tức thời, thì `top` cho ta một khung nhìn động theo thời gian thực:
 
@@ -425,7 +425,7 @@ ps aux | grep cat
 
 Ta sẽ thấy hai process `cat` riêng biệt. Dù cùng xuất phát từ một chương trình, mỗi process vẫn có PID riêng, vùng nhớ riêng, và tài nguyên riêng.
 
-#### Kernel quản lý process như thế nào?
+#### How the Kernel Manages Processes
 
 Linux kernel là thành phần chịu trách nhiệm cho toàn bộ việc quản lý process. Khi ta chạy một chương trình, kernel sẽ:
 
@@ -449,7 +449,7 @@ Hai signal quan trọng nhất trong ngữ cảnh này là `SIGTERM` và `SIGKIL
 
 Vì vậy, nguyên tắc chung là nên thử `SIGTERM` trước, và chỉ dùng `SIGKILL` khi process bị treo hoặc không phản hồi.
 
-#### Kết thúc mặc định với `SIGTERM`
+#### Default Termination with `SIGTERM`
 
 Khi chạy lệnh:
 
@@ -467,7 +467,7 @@ kill -15 12445
 
 Hai lệnh trên là tương đương nhau.
 
-#### Buộc dừng với `SIGKILL`
+#### Forcing a Stop with `SIGKILL`
 
 Nếu process bị treo hoặc không phản hồi với `SIGTERM`, ta có thể dùng:
 
@@ -477,7 +477,7 @@ kill -9 12445
 
 `SIGKILL` (signal số `9`) sẽ buộc process dừng ngay lập tức, không cho nó cơ hội tự cleanup. Vì vậy, đây nên là lựa chọn sau cùng khi cách kết thúc thông thường không còn hiệu quả.
 
-#### Một số signal phổ biến khác
+#### Other Common Signals
 
 Ngoài `SIGTERM` và `SIGKILL`, còn một vài signal rất hay gặp:
 
@@ -486,7 +486,7 @@ Ngoài `SIGTERM` và `SIGKILL`, còn một vài signal rất hay gặp:
 - `SIGSTOP` (19): tạm dừng process mà không kết thúc nó.
 - `SIGCONT`: tiếp tục chạy một process đã bị dừng trước đó.
 
-#### Kiểm tra process có tồn tại không với `kill -0`
+#### Checking Whether a Process Exists with `kill -0`
 
 Một cách dùng khá đặc biệt của `kill` là:
 
@@ -563,7 +563,7 @@ Ngoài dữ liệu thông thường, filesystem Linux còn có những thư mụ
 
 Quản lý dung lượng đĩa là một công việc rất cơ bản khi sử dụng Linux. Hai lệnh quan trọng nhất cho việc này là `df` và `du`.
 
-#### Kiểm tra dung lượng filesystem với `df`
+#### Checking Filesystem Usage with `df`
 
 Lệnh `df` (**disk free**) cho biết dung lượng đã dùng và còn trống của các filesystem đang được mount. Để xem ở dạng dễ đọc hơn như GB hoặc MB, ta dùng:
 
@@ -583,7 +583,7 @@ Output này thường cho ta biết:
 - phần trăm đã sử dụng;
 - vị trí được mount.
 
-#### Kiểm tra inode usage với `df -i`
+#### Checking Inode Usage with `df -i`
 
 Ngoài block storage, filesystem còn dùng **inode** để lưu metadata của file như owner, permission, và vị trí dữ liệu. Trong một số trường hợp hiếm, hệ thống vẫn còn dung lượng trống nhưng lại hết inode. Để kiểm tra điều đó, ta dùng:
 
@@ -596,7 +596,7 @@ Filesystem      Inodes  IUsed   IFree IUse% Mounted on
 
 Lệnh này cho ta biết tổng số inode, số inode đã dùng, số còn trống, và tỷ lệ sử dụng inode trên từng filesystem.
 
-#### Xem dung lượng thư mục với `du`
+#### Checking Directory Size with `du`
 
 Nếu `df` cho ta cái nhìn tổng thể về filesystem, thì `du` (**disk usage**) giúp xác định file hoặc directory nào đang chiếm nhiều chỗ.
 
@@ -614,7 +614,7 @@ du -h /home/pete
 
 Nếu chạy `du -h /`, output có thể rất dài, nên trong thực tế ta thường kiểm tra các thư mục nghi ngờ là đang chiếm nhiều dung lượng.
 
-#### `df` và `du` khác nhau thế nào?
+#### How Do `df` and `du` Differ?
 
 Hai lệnh này rất dễ bị nhầm vì cú pháp khá giống nhau. Có thể nhớ đơn giản như sau:
 
@@ -647,7 +647,7 @@ Trong Linux có hai loại link chính:
 - **symbolic link** (**symlink** hay **soft link**)
 - **hard link**
 
-#### Symbolic Link là gì?
+#### What Is a Symbolic Link?
 
 Nếu trong Windows có shortcut, thì trong Linux khái niệm gần giống nhất là **symbolic link**. Symlink là một file đặc biệt dùng để trỏ đến một file hoặc directory khác theo tên của nó.
 
@@ -678,7 +678,7 @@ Ta có thể nhận ra symlink nhờ hai dấu hiệu:
 
 Symlink có inode riêng của nó. Vì nó trỏ bằng tên đường dẫn thay vì trỏ trực tiếp tới inode của file gốc, symlink có thể băng qua nhiều filesystem khác nhau.
 
-#### Hard Link là gì?
+#### What Is a Hard Link?
 
 Loại link còn lại là **hard link**. Khác với symlink, hard link tạo thêm một entry mới trong filesystem nhưng cùng trỏ trực tiếp tới inode của file gốc.
 
@@ -709,7 +709,7 @@ Trong ví dụ này, `myfile2` và `myhardlink` có cùng inode number `93401`, 
 
 Vì hard link trỏ trực tiếp tới inode, nó không thể băng qua filesystem khác.
 
-#### Tạo symlink và hard link với `ln`
+#### Creating Symlinks and Hard Links with `ln`
 
 Ta dùng lệnh `ln` để tạo cả hai loại link:
 

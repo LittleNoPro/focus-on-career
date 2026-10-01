@@ -6,7 +6,7 @@ tags: ["Tools"]
 categories: ["Linux", "Window"]
 ---
 
-## Introduction 
+## Introduction
 
 **Volatility 3** là bước phát triển của một trong những công cụ mã nguồn mở mạnh nhất trong lĩnh vực **Digital Forensics** - một framework viết bằng **Python 3** chuyên phân tích các **memory dump** từ hệ thống Windows, Linux và macOS. Cốt lõi của **Volatility 3** là trích xuất các **artifact** số quan trọng như tiến trình đang chạy, kết nối mạng và thông tin xác thực của user từ các mẫu **RAM**. Những artifact này nổi tiếng là tồn tại rất ngắn ngủi, nhưng lại thường chứa bằng chứng giá trị nhất trong **Incident Response** và các cuộc điều tra **malware**.
 
@@ -43,7 +43,7 @@ vol -f memdump.mem windows.psscan
 vol -f memdump.mem windows.getsids
 ```
 
-### privs 
+### privs
 
 **windows.privs** kiểm tra các đặc quyền của token trong một tiến trình, cho thấy những quyền đang được bật như debugging hoặc truy cập hệ thống (system access). Đây có thể là dấu hiệu của khai thác lỗ hổng hoặc nâng quyền trái phép.
 
@@ -51,7 +51,7 @@ vol -f memdump.mem windows.getsids
 vol -f memdump.mem windows.privilege.Privs
 ```
 
-### handles 
+### handles
 
 Plugin **windows.handles** liệt kê các handle đang mở (file, registry key) của một tiến trình, giúp lộ ra những tương tác đáng ngờ như khóa file bất thường hoặc mutex được malware dùng để giao tiếp.
 
