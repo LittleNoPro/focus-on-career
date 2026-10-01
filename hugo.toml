@@ -1,4 +1,4 @@
-baseURL = "https://littlenopro.github.io/focus-on-career/"
+baseURL = "https://littlenopro.github.io/notes/"
 languageCode = "vi-vn"
 title = "L1ttl3's note"
 theme = "hugo-texify3"
