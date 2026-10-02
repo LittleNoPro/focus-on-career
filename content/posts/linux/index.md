@@ -2,7 +2,7 @@
 title: "Basic knowledge of Linux"
 date: 2025-02-28T23:30:00+07:00
 draft: false
-tags: ["Basic"]
+tags: ["fundamentals", "filesystem", "permissions", "processes"]
 categories: ["Linux"]
 ---
 

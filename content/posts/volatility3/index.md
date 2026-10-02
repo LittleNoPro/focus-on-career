@@ -2,8 +2,8 @@
 title: "Volatility 3: The Next Generation of Memory Forensics"
 date: 2026-02-28T23:30:00+07:00
 draft: false
-tags: ["Tools"]
-categories: ["Linux", "Window"]
+tags: ["memory-forensics", "forensics", "incident-response"]
+categories: ["Security", "Windows"]
 ---
 
 ## Introduction

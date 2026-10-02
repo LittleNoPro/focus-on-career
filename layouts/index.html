@@ -23,9 +23,9 @@
             <a href="{{ "categories/" | relLangURL }}">Categories</a>
         </h3>
         <ul class="nav-list sidenav">
-            {{range first 10 ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
+            {{ range .Site.Taxonomies.categories.ByCount }}
             <li>
-                <a href="{{ .Permalink }}">{{.Title}}</a>
+                <a href="{{ .Page.Permalink }}">{{ .Page.Title }} ({{ .Count }})</a>
             </li>
             {{ end }}
         </ul>
@@ -40,9 +40,12 @@
             <a href="{{ "tags/" | relLangURL }}">Tags</a>
         </h3>
         <ul class="nav-list sidenav">
-            {{range first 10 ($.Site.GetPage "taxonomyTerm" "tags").Pages }}
+            {{/* Only recurring tags earn a slot in the nav list: a term used by a
+                 single post is a dead end for the reader, and a long A-Z dump of
+                 one-off tags pushes the real facets off the visible area. */}}
+            {{ range where .Site.Taxonomies.tags.ByCount "Count" ">" 1 }}
             <li>
-                <a href="{{ .Permalink }}">{{.Title}}</a>
+                <a href="{{ .Page.Permalink }}">{{ .Term }} ({{ .Count }})</a>
             </li>
             {{ end }}
         </ul>

@@ -3,7 +3,7 @@ title: "Secure Coding and Code Review"
 date: 2026-09-15T18:30:00+07:00
 draft: false
 description: "Từ code chạy đúng đến code an toàn: khái niệm nền, quy trình review dựa trên evidence, cách sửa và kiểm thử patch."
-tags: ["Basic", "Secure Coding"]
+tags: ["appsec", "code-review", "vulnerability"]
 categories: ["Security"]
 ---
 
